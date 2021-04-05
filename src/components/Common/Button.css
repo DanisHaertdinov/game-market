@@ -1,0 +1,11 @@
+.button {
+    font-size: inherit;
+    min-height: 30px;
+    min-width: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button[disabled] {
+    cursor: default;
+}

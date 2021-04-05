@@ -1,0 +1,29 @@
+.game-card {
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px -7px rgb(0 0 1);
+}
+
+.game-card__title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.game-card__extra {
+    text-align: right;
+    margin-left: 10px;
+    flex: 1;
+}
+
+.game-card__description {
+    margin: 10px 0;
+    font-size: 15px;
+    color: #999;
+}
+
+.game-card__content {
+    margin: 10px 0 0;
+}

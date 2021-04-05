@@ -1,0 +1,20 @@
+.price {
+    color: #228822;
+    white-space: nowrap;
+}
+
+.price__free {
+    font-size: 14px;
+}
+
+.price__currency {
+    opacity: .5;
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 1px;
+}
+
+.price__minor {
+    opacity: .5;
+    font-size: 13px;
+}

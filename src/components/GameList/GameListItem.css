@@ -1,0 +1,13 @@
+.game-list-item--disabled {
+    background: #fafafa;
+    box-shadow: none;
+}
+
+.game-list-item__actions {
+    text-align: right;
+}
+
+.game-list-item__action {
+    display: inline-block;
+    text-align: center;
+}

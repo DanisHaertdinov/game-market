@@ -1,0 +1,7 @@
+.sidebar__actions {
+    margin: 20px;
+}
+
+.sidebar__actions .price {
+    color: inherit;
+}

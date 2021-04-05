@@ -1,0 +1,15 @@
+.text-input {
+    margin-bottom: 10px;
+}
+
+.text-input__label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.text-input__input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 7px;
+}

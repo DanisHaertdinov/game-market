@@ -1,0 +1,13 @@
+.sidebar__status {
+    margin: 20px;
+    color: #999;
+}
+
+.sidebar__status--success {
+    color: #282;
+    text-align: center;
+}
+
+.sidebar__status--failed {
+    color: #c00
+}

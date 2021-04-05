@@ -1,0 +1,25 @@
+.header {
+    width: 40px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: -1;
+    opacity: .5;
+}
+
+.header__content {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    transform-origin: 0 0;
+    transform: rotate(-90deg);
+    width: 400px;
+    margin: 200px 0 0;
+    text-align: right;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.header__logo {
+    height: 42px;
+    margin: -10px 10px -10px 0;
+}
