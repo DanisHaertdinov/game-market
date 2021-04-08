@@ -1,8 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {BuyStatus, Purchase, UserInfo} from '../../data/types';
 import {APIContext, CurrentUserContext} from '../Context';
-import {Checkbox} from "../Common/Checkbox";
-import {TextInput} from "../Common/TextInput";
+import {Checkbox} from '../Common/Checkbox';
+import {TextInput} from '../Common/TextInput';
+import './PurchaseForm.css';
 
 interface PurchaseFormProps {
     value: Purchase;
@@ -98,7 +99,7 @@ export function PurchaseForm({value, buyStatus, onChange}: PurchaseFormProps) {
         <form>
             {users.map((user,index) => (
                 <React.Fragment key={`fragment${user.id}`}>
-                    {(userDisclaimer?.id === user.id) && <span key={`disclaimer${user.id}`} data-testid={`user${user.id}${AgeDisclaimerTypes[userDisclaimer.type]}`}>{AgeDisclaimerTexts.get(userDisclaimer.type)}</span>}
+                    {(userDisclaimer?.id === user.id) && <span className="disclaimer" key={`disclaimer${user.id}`} data-testid={`user${user.id}${AgeDisclaimerTypes[userDisclaimer.type]}`}>{AgeDisclaimerTexts.get(userDisclaimer.type)}</span>}
                     <Checkbox
                         key={user.id}
                         testId={`user${user.id}`}
