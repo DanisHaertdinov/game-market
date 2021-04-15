@@ -40,6 +40,7 @@ export function PurchaseForm({value, buyStatus, onChange}: PurchaseFormProps) {
         if (currentUser !== undefined) {
             api.users.fetchFriends({userId: currentUser[`id`]}).then((users) => {
                 const sortedUsers = users.sort((userA, userB) => userA.name.localeCompare(userB.name))
+
                 setUsers([currentUser, ...sortedUsers]);
             });
         }
@@ -70,7 +71,16 @@ export function PurchaseForm({value, buyStatus, onChange}: PurchaseFormProps) {
         }
 
         const idIndex = userIds.findIndex((id) => id === user.id);
-        const ids = isChecked ? [...userIds, user.id] : [...userIds].splice(idIndex, 1);
+
+        let ids = [...userIds]
+
+        if (isChecked) {
+            ids = [...ids, user.id]
+        }
+
+        if (!isChecked && idIndex !== -1) {
+            ids.splice(idIndex, 1)
+        }
 
         onChange({...value, userIds: ids});
     };
@@ -99,14 +109,22 @@ export function PurchaseForm({value, buyStatus, onChange}: PurchaseFormProps) {
         <form>
             {users.map((user,index) => (
                 <React.Fragment key={`fragment${user.id}`}>
-                    {(userDisclaimer?.id === user.id) && <span className="disclaimer" key={`disclaimer${user.id}`} data-testid={`user${user.id}${AgeDisclaimerTypes[userDisclaimer.type]}`}>{AgeDisclaimerTexts.get(userDisclaimer.type)}</span>}
+                    {(userDisclaimer?.id === user.id)
+                    &&
+                    <span className="disclaimer"
+                          key={`disclaimer${user.id}`}
+                          data-testid={`user${user.id}${AgeDisclaimerTypes[userDisclaimer.type]}`}
+                    >
+                        {AgeDisclaimerTexts.get(userDisclaimer.type)}
+                    </span>}
                     <Checkbox
                         key={user.id}
                         testId={`user${user.id}`}
                         disabled={buyStatus === BuyStatus.inProgress}
                         onChange={(isChecked) => handleUserCheckboxChange(isChecked, user)}
-                        checked={userIds.includes(user.id)}>
-                        {user.name}{index === 0 && (` (me)`)}
+                        checked={userIds.includes(user.id)}
+                    >
+                        {(index === 0) ? `${user.name} (me)` : user.name}
                     </Checkbox>
                 </React.Fragment>
             ))}
